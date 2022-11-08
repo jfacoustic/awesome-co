@@ -13,24 +13,26 @@ import UIWrapper from "./UIWrapper";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/employees",
-    element: <EmployeeList />
-  },
-  {
-    path: "/products",
-    element: <ProductList />
+    element: <UIWrapper />,
+    children: [{
+      path: "",
+      element: <Home />,
+    },
+    {
+      path: "employees",
+      element: <EmployeeList />
+    },
+    {
+      path: "products",
+      element: <ProductList />
+    }]
   }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <EmployeesProvider>
-      <UIWrapper>
-        <RouterProvider router={router} />
-      </UIWrapper>
+      <RouterProvider router={router} />
     </EmployeesProvider>
-  </React.StrictMode>
+  </React.StrictMode >
 );

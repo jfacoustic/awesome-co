@@ -3,6 +3,7 @@ import { useContext } from "react";
 import HttpClient from "../httpClient";
 
 const client = new HttpClient();
+
 const defaultValues = {
   client,
   employees: [],
@@ -11,7 +12,6 @@ const defaultValues = {
   removeEmployee: (employee) => { },
   listEmployees: async () => {
     const result = await client.get("/employees");
-    console.log(result);
     return result;
   },
   showEmployee: async (id) => {
