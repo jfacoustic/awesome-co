@@ -8,6 +8,7 @@ import {
 import { EmployeesProvider } from "./data/repositories/employees";
 import "./index.css";
 import { Home, EmployeeList, ProductList } from "./pages";
+import UIWrapper from "./UIWrapper";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <EmployeesProvider>
-      <RouterProvider router={router} />
+      <UIWrapper>
+        <RouterProvider router={router} />
+      </UIWrapper>
     </EmployeesProvider>
   </React.StrictMode>
 );
