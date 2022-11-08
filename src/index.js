@@ -5,6 +5,7 @@ import {
   RouterProvider,
   Route,
 } from "react-router-dom";
+import { EmployeesProvider } from "./data/repositories/employees";
 import "./index.css";
 import { Home, EmployeeList, ProductList } from "./pages";
 
@@ -25,6 +26,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <EmployeesProvider>
+      <RouterProvider router={router} />
+    </EmployeesProvider>
   </React.StrictMode>
 );
